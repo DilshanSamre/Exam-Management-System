@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Student Login </div>
+        <div class="title signup">Instructor Login</div>
+        <div class="titleAdmin" style="display: none;">Admin Login</div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slide" id="login" checked>
+          <input type="radio" name="slide" id="signup">
+          <label for="login" class="slide login">Student</label>
+          <label for="signup" class="slide signup">Instructor</label>
+          <div class="slider-tab"></div>
+        </div>
+
+        <div class="form-inner">
+          <form action="stuLogin.php" class="login" method="post">
+            <div class="field">
+              <input type="text" placeholder="Student Id" name="studentId" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">Are you a Admin? <a style="cursor: pointer;" onclick="myfun()">Login</a></div>
+          </form>
+
+          <form action="instructorLogin.php" class="signup" method="post">
+            <div class="field">
+              <input type="text" placeholder="Instructor Id" name="instructorId" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">Are you a Admin? <a style="cursor: pointer;" onclick="myfun()">Login</a></div>
+            
+          </form>
+          <form style="display: none;" action="adminLogin.php" class="admin" method="post">
+            <div class="field">
+              <input type="text" placeholder="Admin Id" name="adminId" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login">
+            </div>
+            <div class="signup-link"><a href="">Back</a></div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const SignText = document.querySelector(".title-text .signup");
+      const SignForm = document.querySelector("form.signup");
+      const AdminForm = document.querySelector("form.admin");
+      const AdminText = document.querySelector(".title-text .admin");
+      const slide = document.querySelector(".slide-controls")
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const Admin = document.querySelector(".titleAdmin");
+
+      signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      function myfun(){
+        loginText.style.display = "none";
+        loginForm.style.display = "none";
+        loginBtn.style.display = "none";
+        signupBtn.style.display = "none";
+        SignText.style.display = "none";
+        SignForm.style.display = "none";
+        slide.style.display = "none";
+        AdminForm.style.display = "block";
+        AdminForm.style.transition = "all 2s";
+        Admin.style.display = "block";
+
+      }
+
+    
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
